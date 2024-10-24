@@ -130,6 +130,8 @@ DQN是off-policy算法，因此会有一个replay buffer用以保存数据，本
 ## 对智能体性能进行评估，并保存录像：
 ```bash
 python3 -u evaluate.py -ckpt <CHECKPOINT_PATH> -v <VERSION> -a <ACTION SET> -o <FRAME NUMBER>
+python evaluate.py -ckpt exp\v0_7a_1f_seed0_241023_142404\ckpt\iteration_240000.pth.tar -v 0 -a 7 -o 1
+
 ```
 - 此外该命令还会保存评估时的游戏录像（eval_videos/rl-video-xxx.mp4），与类别激活映射CAM（eval_videos/merged.mp4），以供查看，请确保您的 ffmpeg 软件可用。
 - 评估时由于mario环境是确定性的（这个比较特殊），同时DQN是确定性（deterministic）策略，因此结果不会因为seed的改变而改变。但训练时由于需要探索，因此多个seed是必要的。

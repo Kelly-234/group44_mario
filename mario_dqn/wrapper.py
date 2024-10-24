@@ -114,7 +114,8 @@ def get_cam(img, model):
     input_tensor = torch.from_numpy(img).unsqueeze(0)
 
     # Construct the CAM object once, and then re-use it on many images:
-    cam = GradCAM(model=model, target_layers=target_layers, use_cuda=True)
+    # cam = GradCAM(model=model, target_layers=target_layers, use_cuda=True)
+    cam = GradCAM(model=model, target_layers=target_layers)
     targets = None
 
     # You can also pass aug_smooth=True and eigen_smooth=True, to apply smoothing.
